@@ -1,0 +1,111 @@
+@import "../../settings.css";
+
+:root {
+  --aboutTopText: {
+    width: 50%;
+    padding: 4% 0;
+  }
+}
+
+.about-top {
+  @apply --flex-wrap;
+}
+
+.about-bottom {
+  @apply --flex-wrap;
+  background: #f2f2f2;
+}
+
+.about-top-pic, .about-bottom-pic {
+  width: 40%;
+  align-self: center;
+}
+
+.about-top-text {
+  @apply --aboutTopText;
+}
+
+.about-top h3, .about-bottom h3 {
+  background: url(../../images/line.png) no-repeat 0% 100%;
+}
+
+.about-bottom-text {
+  @apply --aboutTopText;
+  align-self: flex-start;
+}
+
+.about-top p, .about-bottom p {
+  font-size: 110%;
+  line-height: 1.5em;
+  font-weight: 400;
+  margin-top: 1em;
+  width: 90%;
+}
+
+.about-list {
+  margin-top: 2em;
+}
+
+.about-list ul li {
+  display: block;
+  list-style-type: none;
+  margin-bottom: 0.5em;
+
+  & a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 1.25em;
+    font-weight: 600;
+
+    & span {
+      background: url(../../images/icons1.png) no-repeat;
+      width: 20px;
+      height: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 13px;
+
+      &.abt1 {
+        background-position: -7px -12px;
+      }
+      &.abt2 {
+        background-position: -7px -37px;
+      }
+      &.abt3 {
+        background-position: -7px -69px;
+      }
+      &.abt4 {
+        background-position: -7px -97px;
+      }
+    }
+  }
+}
+
+@media (--xl) {
+  .about-top-pic, .about-bottom-pic {
+    width: 30%;
+  }
+
+  .about-top-text, .about-bottom-text {
+    width: 60%;
+  }
+
+  .about-top p, .about-bottom p {
+    font-size: 120%;
+  }
+}
+
+@media (--medium) {
+  .about-top-pic, .about-bottom-pic {
+    width: 30%;
+  }
+
+  .about-top-text, .about-bottom-text {
+    width: 100%;
+    padding: 8% 0;
+  }
+
+  .about-top p, .about-bottom p {
+    font-size: 140%;
+  }
+}

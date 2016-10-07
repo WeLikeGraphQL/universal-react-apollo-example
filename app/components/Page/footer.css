@@ -1,0 +1,12 @@
+.footer {
+  background: #15141a;
+  padding: 3em 0;
+
+  & p {
+    color: #3e3d43;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 1em;
+  }
+}

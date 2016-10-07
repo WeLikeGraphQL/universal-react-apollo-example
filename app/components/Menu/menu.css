@@ -1,0 +1,75 @@
+:local {
+
+  & .menu {
+    display: inline;
+    margin: 0;
+
+    & li {
+      display: inline-block;
+
+      & a {
+        color: #fff;
+        padding: 0 5px;
+        display: block;
+        text-decoration: none;
+        margin: 0 0.5em;
+
+        &:hover {
+          color: #008ed6;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  & .dropdown {
+    display: none;
+    background: none !important;
+    border: 0;
+
+    & > span:after {
+      content: url('./nav.png');
+      cursor: pointer;
+      height: 22px;
+    }
+
+    & ~ ul {
+      padding: 10px 20px;
+      position: absolute;
+      text-align: center;
+      left: auto;
+      background: #555555;
+      right: 2%;
+      color: white;
+    }
+
+
+  }
+
+  & ul .dropdown-menu a {
+    padding: 7px;
+    font-size: 14px;
+    width: 100%;
+    font-weight: 600;
+    display: block;
+    margin: 0;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      color: #008ed6;
+      cursor: pointer;
+    }
+  }
+
+}
+
+@media (max-width: 750px) {
+  :local .menu {
+    display: none;
+  }
+
+  :local .dropdown {
+    display: block;
+  }
+}

@@ -1,0 +1,8 @@
+dist
+node_modules
+dll
+compiled
+package.json
+npm-debug.log
+nodemon.json
+README.md

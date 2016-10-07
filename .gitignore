@@ -1,0 +1,9 @@
+.idea
+babel-cache
+compiled
+node_modules
+dist
+*.log
+coverage
+karma.conf.js
+npm-debug.log

@@ -1,0 +1,72 @@
+@import "../../settings.css";
+
+:root {
+  --padding-left-right: 5%;
+}
+
+.features {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.features-head {
+  text-align: center;
+}
+
+.features-section {
+  @apply --flex-wrap;
+  margin-top: 4em;
+}
+
+.feature-grid {
+  width: 25%;
+  align-self: flex-start;
+  padding: 0 2%;
+  padding-bottom: 3em;
+  text-align: center;
+
+  & img {
+    margin-bottom: 1em;
+  }
+
+  & h3 {
+    font-size: 170%;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+  }
+
+  & p {
+    font-size: 90%;
+  }
+}
+
+@media (--xl) {
+  .feature-grid {
+    width: 49%;
+    padding-left: var(--padding-left-right);
+    padding-right: var(--padding-left-right);
+
+    & p {
+      font-size: 120%;
+    }
+  }
+}
+
+@media (--medium) {
+  .feature-grid {
+    width: 49%;
+
+    & p {
+      font-size: 140%;
+    }
+  }
+}
+
+@media (--small) {
+  .feature-grid {
+    width: 90%;
+
+    & p {
+      font-size: 140%;
+    }
+  }
+}

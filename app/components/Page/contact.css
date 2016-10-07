@@ -1,0 +1,73 @@
+@import "../../settings.css";
+
+div.theme {
+  padding-top: 4em;
+  padding-bottom: 4em;
+  background: #15141a;
+
+  & h3 {
+    color: #fff;
+    font-size: 2.4em;
+    font-weight: 100;
+    display: inline-block;
+    background: none;
+  }
+}
+
+.contact {
+  background: #ededed;
+}
+
+.contact-text {
+  text-align: center;
+}
+
+@mixin icon($top, $left, $width) {
+  background: url(../../images/icons1.png) no-repeat $top $left;
+  width: $width;
+  height: 35px;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.icon1 {
+  @include icon(-46px, -14px, 28px);
+}
+
+.icon2 {
+  @include icon(-96px, -14px, 28px);
+}
+
+.icon3 {
+  @include icon(-145px, -14px, 35px);
+}
+
+.contact-grids {
+  @apply --flex-wrap;
+  padding: 3% 0;
+}
+
+.contact-grid {
+  width: 33.33%;
+  font-weight: 500;
+  font-size: 1.25em;
+}
+
+.disposition {
+  width: 100%;
+  text-align: right;
+  margin-top: 20px;
+}
+
+@media (--xl) {
+  .contact-grids {
+    padding: 6% 0;
+  }
+}
+
+@media (--medium) {
+  .contact-grids {
+    padding: 8% 0;
+  }
+}

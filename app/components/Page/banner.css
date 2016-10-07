@@ -1,0 +1,45 @@
+@import "../../settings.css";
+
+.application div.banner {
+  @apply --flex-wrap;
+  background: url('http://192.168.1.111:8000/wp-content/uploads/2016/04/bg.jpg') no-repeat 0px 0px;
+  background-size: cover;
+  padding-top: 7em;
+  padding-bottom: 0;
+}
+
+.banner-text {
+  align-self: flex-start;
+  width: 50%;
+  margin-top: 6%;
+
+  & div {
+    font-size: 1.3em;
+    color: #999999;
+    line-height: 1.5em;
+    margin-bottom: 2em;
+  }
+}
+
+.banner-pic {
+  width: 40%;
+  align-self: flex-end;
+}
+
+@media (--xl) {
+  .banner-text {
+    width: 55%;
+  }
+  .banner-pic {
+    width: 35%;
+  }
+}
+
+@media (--medium) {
+  .banner-text {
+    width: 100%;
+  }
+  .banner-pic {
+    width: 60%;
+  }
+}

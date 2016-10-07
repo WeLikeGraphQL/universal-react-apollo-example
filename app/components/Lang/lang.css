@@ -1,0 +1,47 @@
+:local {
+
+  & .dropdown {
+    background: none !important;
+    border: 0;
+  }
+
+  & .dropdown-menu {
+    background: #555555;
+    display: inline-block;
+    border-bottom: 2px solid #16151b;
+
+    & a {
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.15em;
+      padding: 0 2px 10px 2px;
+      display: block;
+      text-decoration: none;
+      margin: 0 0.5em;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.dropdown-menu {
+  min-width: 0px;
+  padding: 0;
+
+  & li {
+    padding: 8px 20px;
+
+    & span:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.flag-icon {
+  font-size: 16px;
+}
+.caret {
+  border-top: 4px solid white;
+}

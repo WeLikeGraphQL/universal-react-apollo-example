@@ -1,0 +1,12 @@
+@custom-media --small (max-width: 24em);
+@custom-media --medium (max-width: 40em);
+@custom-media --large (max-width: 50em);
+@custom-media --xl (max-width: 73em);
+
+:root {
+  --flex-wrap: {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

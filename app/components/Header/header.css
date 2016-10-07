@@ -1,0 +1,35 @@
+@import "../../settings.css";
+
+:local {
+
+  & .header {
+    @apply --flex-wrap;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    color: white;
+    position: absolute;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  & .logo {
+    width: 50%;
+
+    & h2 {
+      font-size: 250%;
+      font-family: 'GoogleSourceSansPro';
+
+      @media (max-width: 24em) {
+        font-size: 200%;
+      }
+    }
+  }
+
+  & .top-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-start;
+  }
+}

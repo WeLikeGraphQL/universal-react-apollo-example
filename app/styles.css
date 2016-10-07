@@ -1,0 +1,112 @@
+@import "settings.css";
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'GoogleSourceSansPro';
+  src: url('./fonts/SourceSansPro-BlackItalic.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+html {
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 100%;
+  overflow-x: hidden;
+
+  @media (--xl) {
+    font-size: 90%;
+  }
+
+  @media (--large) {
+    font-size: 80%;
+  }
+
+  @media (--medium) {
+    font-size: 70%;
+  }
+
+  @media (--small) {
+    font-size: 60%;
+  }
+}
+
+body a {
+  transition: 0.5s all;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 300%;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 250%;
+  font-weight: 600;
+  color: #1a1a1a;
+  padding-bottom: 0.7em;
+  background: url(./images/line.png) no-repeat 50% 100%;
+}
+
+h4 {
+  padding-top: 3%;
+  font-size: 90%;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #008ed6;
+  margin-bottom: 1.2em;
+}
+
+a {
+  font-size: 100%;
+}
+
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  line-height: 1.4em;
+}
+
+.dropdown-menu {
+  left: -66%;
+}
+
+header, .application > div > div > div {
+  padding: 2% 7%;
+}
+
