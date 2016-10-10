@@ -1,14 +1,9 @@
 # React Apollo Example
 
-[![Dependency Status][dep-status-img]][dep-status-link] [![devDependency Status][dev-dep-status-img]][dev-dep-status-link]
 [![Gitter][gitter-img]][gitter-link]
 
 > An example of the app with GraphQL! Built with React and Apollo Client!
 
-[dep-status-img]: https://david-dm.org/WeLikeGraphQL/react-apollo-example.svg
-[dep-status-link]: https://david-dm.org/WeLikeGraphQL/react-apollo-example
-[dev-dep-status-img]: https://david-dm.org/WeLikeGraphQL/react-apollo-example/dev-status.svg
-[dev-dep-status-link]: https://david-dm.org/WeLikeGraphQL/react-apollo-example#info=devDependencies
 [gitter-img]: https://badges.gitter.im/Join%20Chat.svg
 [gitter-link]: https://gitter.im/WeLikeGraphQL/react-apollo-example?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
