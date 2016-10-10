@@ -12,7 +12,7 @@
  - [GraphQL](http://graphql.org/) for fetching data! The most awesome part of the project!
  - ES6/ES2015 with [Babel](https://babeljs.io/)
  - React data container for the [Apollo Client](http://dev.apollodata.com/react/) 
- - Integrating predictable state container[Redux](http://redux.js.org) with Apollo
+ - Integrating predictable state container [Redux](http://redux.js.org) with Apollo
  - Hot reloading using [react-transform-hmr](https://github.com/gaearon/react-transform-hmr)
  - Development and production bundling by [Webpack](https://webpack.github.io)
  - [CSSNext](http://cssnext.io/): use of official W3C syntax of the future CSS
@@ -23,7 +23,7 @@
  - Linting both JS and CSS, respectively by: [ESLint](http://eslint.org/) and [Stylelint](http://stylelint.io/)
  
 
- - Server Side Rendering in progress due to [this issue](https://github.com/apollostack/react-apollo/issues/250)
+ - Production Mode in progress due to [this issue](https://github.com/apollostack/react-apollo/issues/250)
  
 ## Running the app
 
