@@ -2,7 +2,7 @@
 
 [![Gitter][gitter-img]][gitter-link]
 
-> An example of the app with GraphQL! Built with React and Apollo Client!
+> An example of the app with GraphQL!
 
 [gitter-img]: https://badges.gitter.im/Join%20Chat.svg
 [gitter-link]: https://gitter.im/WeLikeGraphQL/react-apollo-example?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
@@ -22,7 +22,7 @@
  - [CSS Modules](https://github.com/css-modules/css-modules): say goodbye to global scope in CSS and most of conflicts
  - Linting both JS and CSS, respectively by: [ESLint](http://eslint.org/) and [Stylelint](http://stylelint.io/)
  
- 
+
  - Server Side Rendering in progress due to [this issue](https://github.com/apollostack/react-apollo/issues/250)
  
 ## Running the app
