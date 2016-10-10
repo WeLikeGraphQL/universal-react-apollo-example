@@ -37,7 +37,7 @@ Make sure you have Node.js installed (the app has been tested with Node `5.12.0`
 
 ```
 git clone https://github.com/WeLikeGraphQL/react-apollo-example.git
-cd GitHunt
+cd react-apollo-example
 npm install
 ```
 
@@ -55,7 +55,7 @@ npm run start
 ```
 
 - Open the client at http://localhost:3000
-- You can change port and other settings in `.env` file
+- You can change ports and other settings in `.env` file
 
 ## How to Contribute:
 
