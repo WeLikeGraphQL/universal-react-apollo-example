@@ -18,7 +18,7 @@
  - [CSSNext](http://cssnext.io/): use of official W3C syntax of the future CSS
  - Transforming styles with JS plugins by [PostCSS](http://postcss.org/)
  - [Wow.js](http://mynameismatthieu.com/WOW/) for CSS animations
- - [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) for resolving [layout fatigue](http://blog.karenmenezes.com/2014/apr/13/floats-inline-block-or-display-table-or-flexbox/). Doesn't work on IE 9, but it should not be a problem nowadays. See [browsers usage](http://caniuse.com/usage-table).
+ - [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) for resolving [layout fatigue](http://blog.karenmenezes.com/2014/apr/13/floats-inline-block-or-display-table-or-flexbox/) and making the app responsive (open the app in desktop, mobile, whatever...). Doesn't work on IE 9, but it should not be a problem nowadays. See [browsers usage](http://caniuse.com/usage-table).
  - [CSS Modules](https://github.com/css-modules/css-modules): say goodbye to global scope in CSS and most of conflicts
  - Linting both JS and CSS, respectively by: [ESLint](http://eslint.org/) and [Stylelint](http://stylelint.io/)
  
@@ -27,13 +27,13 @@
  
 ## Running the app
 
-### 0. This repository is the frontend for [Wordpress GraphQL API Example](https://github.com/WeLikeGraphQL/wordpress-graphql-api-example). You need to run it first, however, you can also set up own endpoints.
+### 1. This repository is the frontend for [Wordpress GraphQL API Example](https://github.com/WeLikeGraphQL/wordpress-graphql-api-example). You need to run it first, however, you can also set up own endpoints.
 
-### 1. Install Node/npm
+### 2. Install Node/npm
 
 Make sure you have Node.js installed (the app has been tested with Node `5.12.0`)
 
-### 2. Clone and install dependencies
+### 3. Clone and install dependencies
 
 ```
 git clone https://github.com/WeLikeGraphQL/react-apollo-example.git
@@ -41,7 +41,7 @@ cd react-apollo-example
 npm install
 ```
 
-### 3. Build and run the app
+### 4. Build and run the app
 
 Development mode:
 ```

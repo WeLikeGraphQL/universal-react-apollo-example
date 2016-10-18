@@ -9,7 +9,7 @@ var CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   cache: true,
-  // if you need debugging change to any source-map
+  // if you need debugging change to any source-map: https://webpack.github.io/docs/configuration.html#devtool
   devtool: 'eval',
   name: 'browser',
   context: path.join(__dirname, '..', 'app'),
