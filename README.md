@@ -1,8 +1,11 @@
-# React Apollo Example
+# Universal React Apollo Example
 
 [![Gitter][gitter-img]][gitter-link]
 
-> An example of the app with GraphQL!
+[![Build Status](https://travis-ci.org/WeLikeGraphQL/universal-react-apollo-example.svg?branch=master)](https://travis-ci.org/WeLikeGraphQL/universal-react-apollo-example)
+[![Coverage Status](https://coveralls.io/repos/WeLikeGraphQL/universal-react-apollo-example/badge.svg?branch=master&service=github)](https://coveralls.io/github/WeLikeGraphQL/universal-react-apollo-example?branch=master)
+
+> An example of the app that shows how to use a modern stack (strong accent on GraphQL!).
 
 [gitter-img]: https://badges.gitter.im/Join%20Chat.svg
 [gitter-link]: https://gitter.im/WeLikeGraphQL/react-apollo-example?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
@@ -10,6 +13,7 @@
 ## Features
 
  - [GraphQL](http://graphql.org/) for fetching data! The most awesome part of the project!
+ - Universal Rendering
  - ES6/ES2015 with [Babel](https://babeljs.io/)
  - React data container for the [Apollo Client](http://dev.apollodata.com/react/) 
  - Integrating predictable state container [Redux](http://redux.js.org) with Apollo
@@ -22,40 +26,43 @@
  - [CSS Modules](https://github.com/css-modules/css-modules): say goodbye to global scope in CSS and most of conflicts
  - Linting both JS and CSS, respectively by: [ESLint](http://eslint.org/) and [Stylelint](http://stylelint.io/)
  
-
- - Production Mode in progress due to [this issue](https://github.com/apollostack/react-apollo/issues/250)
- 
 ## Running the app
 
 ### 1. This repository is the frontend for [Wordpress GraphQL API Example](https://github.com/WeLikeGraphQL/wordpress-graphql-api-example). You need to run it first, however, you can also set up own endpoints.
 
 ### 2. Install Node/npm
 
-Make sure you have Node.js installed (the app has been tested with Node `5.12.0`)
+Make sure you have Node.js installed (the app has been tested with Node `5.12.0`). You can use `npm` or `yarn` for running commands (we prefer `yarn`, as it is faster).
 
 ### 3. Clone and install dependencies
 
 ```
 git clone https://github.com/WeLikeGraphQL/react-apollo-example.git
 cd react-apollo-example
-npm install
+yarn install
 ```
 
 ### 4. Build and run the app
 
 Development mode:
 ```
-npm run dev
+yarn run dev
 ```
 
-Production mode: (not works fully due to [this issue](https://github.com/apollostack/react-apollo/issues/250))
+Production mode:
 ```
-npm run build
-npm run start
+yarn run build
+yarn start
 ```
 
 - Open the client at http://localhost:3000
 - You can change ports and other settings in `.env` file
+
+### 5. Running Tests
+
+```
+yarn test
+```
 
 ## How to Contribute:
 

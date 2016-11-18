@@ -10,6 +10,7 @@ module.exports = {
     "camelcase": 0,
     "comma-dangle": 0,
     "max-len": 0,
+    "no-shadow": 0,
     "trailing-spaces": 0,
 
     "import/extensions": 0,
