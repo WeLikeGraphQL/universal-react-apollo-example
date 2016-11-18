@@ -1,48 +1,30 @@
 /* eslint-disable object-shorthand, no-var, func-names, global-require */
 var path = require('path');
 var webpack = require('webpack');
-var postcssImport = require('postcss-import');
-var postcssSassyMixins = require('postcss-sassy-mixins');
-var postcssCSSNext = require('postcss-cssnext');
 var StyleLintPlugin = require('stylelint-webpack-plugin');
 var CopyPlugin = require('copy-webpack-plugin');
+
+var config = require('./common.config.js');
 
 module.exports = {
   cache: true,
   // if you need debugging change to any source-map: https://webpack.github.io/docs/configuration.html#devtool
   devtool: 'eval',
   name: 'browser',
-  context: path.join(__dirname, '..', 'app'),
+  context: config.context,
   entry: {
     app: ['./client', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true']
   },
   output: {
     // The output directory as absolute path
-    path: path.join(__dirname, '..', 'dist'),
+    path: config.assetsPath,
     // The filename of the entry chunk as relative path inside the output.path directory
     filename: '[name].js',
     // The output path added to assets in Html.js
-    publicPath: '/'
+    publicPath: config.publicPath
   },
   module: {
-    loaders: [
-      {
-        test: /isIterable/,
-        loader: 'imports?Symbol=>false'
-      },
-      {
-        test: /\.js?$/,
-        loader: 'babel',
-        query: {
-          presets: ['react-hmre', 'es2015', 'react', 'stage-0'],
-          cacheDirectory: 'babel-cache'
-        },
-        include: path.join(__dirname, '..', 'app')
-      },
-      {
-        test: /\.json?$/,
-        loader: 'json'
-      },
+    loaders: config.commonLoaders.concat([
       {
         test: /\.css$/,
         loaders: [
@@ -50,11 +32,7 @@ module.exports = {
           'css?importLoaders=1&localIdentName=[path]_[name]_[local]',
           'postcss'
         ],
-        include: path.join(__dirname, '..', 'app')
-      },
-      {
-        test: /\.(jpg|ttf|eot|woff2|woff|svg|png)?$/,
-        loader: 'url-loader'
+        include: config.context
       },
       {
         test: /flag-icon\.css$/,
@@ -63,35 +41,21 @@ module.exports = {
           'css'
         ]
       }
-    ]
+    ])
   },
-  postcss: [
-    postcssImport({
-      path: path.join(__dirname, '..', 'app'),
-      addDependencyTo: webpack
-    }),
-    postcssSassyMixins(),
-    postcssCSSNext({
-      browsers: ['last 10 versions']
-    })
-  ],
-  resolve: {
-    // now do not have to resolve files in the project using ../.. etc.
-    root: [path.join(__dirname, '..', 'app')],
-    moduleDirectories: ['../node_modules'],
-    extensions: ['', '.js', '.css']
-  },
+  postcss: config.commonPostCSS,
+  resolve: config.commonResolve,
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new StyleLintPlugin({
       configFile: path.join(__dirname, '..', '.stylelintrc'),
-      context: path.join(__dirname, '..', 'app'),
+      context: config.context,
       files: '**/*.css'
     }),
     new webpack.DllReferencePlugin({
-      context: path.join(__dirname, '..', 'app'),
+      context: config.context,
       manifest: require('../dll/vendors-manifest.json')
     }),
     new CopyPlugin([
@@ -99,9 +63,5 @@ module.exports = {
       { from: '../vendor/animate.min.css', to: 'styles' },
       { from: '../app/favicon-32x32.png' }
     ])
-  ],
-  node: {
-    fs: 'empty'
-  }
+  ]
 };
-

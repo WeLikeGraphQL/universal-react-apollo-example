@@ -2,6 +2,8 @@
 var path = require('path');
 var webpack = require('webpack');
 
+var config = require('./common.config.js');
+
 module.exports = {
   entry: {
     vendors: [path.join(__dirname, '..', 'vendor', 'vendors.js')]
@@ -15,7 +17,7 @@ module.exports = {
     new webpack.DllPlugin({
       path: path.join(__dirname, '..', 'dll', '[name]-manifest.json'),
       name: '[name]',
-      context: path.resolve(__dirname, '..', 'app')
+      context: config.context
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin(),
@@ -25,9 +27,5 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
   ],
-  resolve: {
-    root: [path.join(__dirname, '..', 'app')],
-    moduleDirectories: ['../node_modules'],
-    extensions: ['', '.js', '.css']
-  }
+  resolve: config.commonResolve
 };
