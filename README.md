@@ -2,7 +2,7 @@
 
 [![Gitter][gitter-img]][gitter-link]
 [![Build Status](https://travis-ci.org/WeLikeGraphQL/universal-react-apollo-example.svg?branch=master)](https://travis-ci.org/WeLikeGraphQL/universal-react-apollo-example)
-[![Coverage Status](https://coveralls.io/repos/WeLikeGraphQL/universal-react-apollo-example/badge.svg?branch=master&service=github)](https://coveralls.io/github/WeLikeGraphQL/universal-react-apollo-example?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/WeLikeGraphQL/universal-react-apollo-example/badge.svg?branch=master)](https://coveralls.io/github/WeLikeGraphQL/universal-react-apollo-example?branch=master)
 
 > An example of the app that shows how to use a modern stack (strong accent on GraphQL!).
 
@@ -23,6 +23,7 @@
  - [Wow.js](http://mynameismatthieu.com/WOW/) for CSS animations
  - [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) for resolving [layout fatigue](http://blog.karenmenezes.com/2014/apr/13/floats-inline-block-or-display-table-or-flexbox/) and making the app responsive (open the app in desktop, mobile, whatever...). Doesn't work on IE 9, but it should not be a problem nowadays. See [browsers usage](http://caniuse.com/usage-table).
  - [CSS Modules](https://github.com/css-modules/css-modules): say goodbye to global scope in CSS and most of conflicts
+ - [Jest](https://facebook.github.io/jest/), [Enzyme](http://airbnb.io/enzyme/), [Chai](http://chaijs.com/), [Sinon](http://sinonjs.org/) for testing (no [snapshot](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) tests yet)
  - Linting both JS and CSS, respectively by: [ESLint](http://eslint.org/) and [Stylelint](http://stylelint.io/)
  
 ## Running the app
