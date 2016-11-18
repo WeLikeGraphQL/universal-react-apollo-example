@@ -1,7 +1,6 @@
 # Universal React Apollo Example
 
 [![Gitter][gitter-img]][gitter-link]
-
 [![Build Status](https://travis-ci.org/WeLikeGraphQL/universal-react-apollo-example.svg?branch=master)](https://travis-ci.org/WeLikeGraphQL/universal-react-apollo-example)
 [![Coverage Status](https://coveralls.io/repos/WeLikeGraphQL/universal-react-apollo-example/badge.svg?branch=master&service=github)](https://coveralls.io/github/WeLikeGraphQL/universal-react-apollo-example?branch=master)
 
