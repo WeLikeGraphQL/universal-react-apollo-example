@@ -1,0 +1,30 @@
+:local {
+
+  & .menu {
+    display: inline;
+    margin: 0;
+
+    & li {
+      display: inline-block;
+
+      & a {
+        color: #fff;
+        padding: 0 5px;
+        display: block;
+        text-decoration: none;
+        margin: 0 0.5em;
+
+        &:hover {
+          color: #008ed6;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  :local .menu {
+    display: none;
+  }
+}

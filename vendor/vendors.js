@@ -2,7 +2,6 @@ require('react');
 require('react-dom');
 require('apollo-client');
 require('react-apollo');
-require('react-router');
 require('redux');
 require('isomorphic-fetch');
 require('react-bootstrap');

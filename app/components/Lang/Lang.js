@@ -6,16 +6,11 @@ import { connect } from 'react-redux';
 
 import setLanguage from 'actions';
 import LangIcon from 'components/LangIcon/LangIcon';
-import s from './lang';
+import s from './lang.css';
 
-const Lang = ({ language, changeLang, data }) => {
-  const { loading } = data;
+export const Lang = ({ language, changeLang, data: { loading, wp_query } }) => {
+  if (loading) return (null);
 
-  if (loading) {
-    return (null);
-  }
-
-  const { wp_query } = data;
   const { terms } = wp_query;
   const languages = terms[0].children;
 
@@ -24,13 +19,11 @@ const Lang = ({ language, changeLang, data }) => {
       bsStyle="default" title={[<LangIcon language={language} />]} id="Lang"
       className={s.dropdown}
     >
-      {languages.map((lang) => {
-        return (
-          <MenuItem key={lang.term_id} onClick={() => changeLang(lang.slug)} className={s['dropdown-menu']}>
-            <LangIcon language={lang.slug} />
-          </MenuItem>
-        );
-      })}
+      {languages && languages.map(lang => (
+        <MenuItem key={lang.term_id} onClick={() => changeLang(lang.slug)} className={s['dropdown-menu']}>
+          <LangIcon language={lang.slug} />
+        </MenuItem>
+      ))}
     </DropdownButton>
   );
 };
@@ -49,7 +42,7 @@ const LangWithState = connect(
   mapDispatchToProps
 )(Lang);
 
-const PageWithDataAndState = graphql(gql`
+export const LANG_QUERY = gql`
   query getTerms {
     wp_query {
       terms(slug: "languages") {
@@ -61,6 +54,8 @@ const PageWithDataAndState = graphql(gql`
       }
     }
   }
-`)(LangWithState);
+`;
+
+const PageWithDataAndState = graphql(LANG_QUERY)(LangWithState);
 
 export default PageWithDataAndState;

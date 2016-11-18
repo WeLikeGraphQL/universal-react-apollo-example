@@ -6,7 +6,7 @@ import WOW from 'wow.js/dist/wow.js';
 import 'flag-icon-css/css/flag-icon.css';
 import Header from 'components/Header/Header';
 import Page from 'components/Page/Page';
-import 'styles';
+import 'styles.css';
 
 export default class App extends React.Component {
 

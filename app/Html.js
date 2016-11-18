@@ -66,6 +66,7 @@ function Html({ content, state }) {
           dangerouslySetInnerHTML={{ __html: `window.__APOLLO_STATE__=${JSON.stringify(state)};` }}
           charSet="UTF-8"
         />
+        <script src="app.js" charSet="UTF-8" />
       </body>
     </html>
   );

@@ -43,12 +43,13 @@ export default function render(req, res) {
     </ApolloProvider>
   );
 
-  getDataFromTree(component).then((context) => {
+  getDataFromTree(component).then(() => {
     const content = ReactDOM.renderToString(component);
+    const initialState = client.store.getState()[client.reduxRootKey].data;
+
+    const html = <Html content={content} state={initialState} />;
+
     res.status(200);
-
-    const html = <Html content={content} state={context.store.getState()} />;
-
     res.send(`<!doctype html>\n${ReactDOM.renderToStaticMarkup(html)}`);
     res.end();
   }).catch(e => console.error('RENDERING ERROR:', e));

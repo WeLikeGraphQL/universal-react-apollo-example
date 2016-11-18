@@ -5,35 +5,33 @@ import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 import { animateScroll } from 'react-scroll';
 
-import './banner';
-import './contact';
-import './details';
-import './features';
-import './footer';
-import './page';
+import './banner.css';
+import './contact.css';
+import './details.css';
+import './features.css';
+import './footer.css';
+import './page.css';
 
-const Page = ({ data }) => {
-  const { loading } = data;
+export const Page = ({ data: { loading, wp_query } }) => {
+  if (loading) return (null);
 
-  if (loading) {
-    return (null);
-  }
+  const { posts } = wp_query;
 
-  const { posts } = data.wp_query;
+  const scrollToTop = () => {
+    animateScroll.scrollToTop();
+  };
 
   return (
     <div>
-      {posts.map((post) => {
-        return (
-          <div key={post.title} dangerouslySetInnerHTML={{ __html: post.content }} />
-        );
-      })}
-      <a className="toTop" onClick={() => animateScroll.scrollToTop()} />
+      {posts && posts.map(post => (
+        <div key={post.title} dangerouslySetInnerHTML={{ __html: post.content }} />
+      ))}
+      <a className="toTop" onClick={scrollToTop} />
     </div>
   );
 };
 
-const PageWithData = graphql(gql`
+export const PAGE_QUERY = gql`
   query getPosts ($lang: String!) {
     wp_query {
       posts (category_name: $lang) {
@@ -42,7 +40,9 @@ const PageWithData = graphql(gql`
       }
     }
   }
-`, {
+`;
+
+const PageWithData = graphql(PAGE_QUERY, {
   options: ({ language }) => ({
     variables: { lang: language || 'gb' },
   }),
