@@ -46,6 +46,7 @@ yarn install
 
 Development mode:
 ```
+yarn run build:dll
 yarn run dev
 ```
 

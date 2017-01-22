@@ -2,8 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
-import { ApolloProvider } from 'react-apollo';
-import { getDataFromTree } from 'react-apollo/server';
+import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import 'isomorphic-fetch';
 import dotenv from 'dotenv';
@@ -22,7 +21,7 @@ export default function render(req, res) {
   const client = new ApolloClient({
     ssrMode: true,
     ssrForceFetchDelay: 2000,
-    networkInterface: createNetworkInterface(apiUrl, {
+    networkInterface: createNetworkInterface({uri: apiUrl}, {
       credentials: 'same-origin',
       headers: req.headers
     }),

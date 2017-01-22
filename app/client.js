@@ -12,7 +12,7 @@ import App from './App';
 
 // remember to change this endpoint accordingly - here is no access to .env file
 // ${HOST}:${GRAPHQL_PORT}/${GRAPHQL_ENDPOINT}
-const networkInterface = createNetworkInterface('http://localhost:8000/graphql');
+const networkInterface = createNetworkInterface({uri: 'http://localhost:8000/graphql'});
 
 const client = new ApolloClient({
   networkInterface,

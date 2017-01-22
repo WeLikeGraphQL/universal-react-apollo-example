@@ -8,3 +8,4 @@ dll
 coverage
 karma.conf.js
 npm-debug.log
+jest
