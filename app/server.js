@@ -21,7 +21,7 @@ export default function render(req, res) {
   const client = new ApolloClient({
     ssrMode: true,
     ssrForceFetchDelay: 2000,
-    networkInterface: createNetworkInterface({uri: apiUrl}, {
+    networkInterface: createNetworkInterface({ uri: apiUrl }, {
       credentials: 'same-origin',
       headers: req.headers
     }),
