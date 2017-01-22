@@ -2,7 +2,7 @@
 
 .application div.banner {
   @apply --flex-wrap;
-  background: url('http://192.168.1.111:8000/wp-content/uploads/2016/04/bg.jpg') no-repeat 0px 0px;
+  background: url('http://localhost:8000/wp-content/uploads/2016/04/bg.jpg') no-repeat 0px 0px;
   background-size: cover;
   padding-top: 7em;
   padding-bottom: 0;

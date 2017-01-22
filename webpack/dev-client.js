@@ -13,7 +13,11 @@ module.exports = {
   name: 'browser',
   context: config.context,
   entry: {
-    app: ['./client', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true']
+    app: [
+      'webpack-hot-middleware/client?reload=true',
+      'react-hot-loader/patch',
+      './client'
+    ]
   },
   output: {
     // The output directory as absolute path

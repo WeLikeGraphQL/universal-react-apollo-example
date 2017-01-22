@@ -4,12 +4,13 @@ import { render } from 'react-dom';
 import ApolloClient, { createNetworkInterface, addTypename } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { AppContainer } from 'react-hot-loader';
 import 'isomorphic-fetch';
 
 import language from 'reducers/language';
-import App from 'App';
+import App from './App';
 
-// rembmer to change this endpoint accordingly - here is no access to .env file
+// remember to change this endpoint accordingly - here is no access to .env file
 // ${HOST}:${GRAPHQL_PORT}/${GRAPHQL_ENDPOINT}
 const networkInterface = createNetworkInterface('http://localhost:8000/graphql');
 
@@ -34,8 +35,23 @@ const store = createStore(
   applyMiddleware(client.middleware())
 );
 
-render((
-  <ApolloProvider store={store} client={client}>
-    <App />
-  </ApolloProvider>
-), document.getElementById('content'));
+const renderApp = () => {
+  render((
+    <AppContainer>
+      <ApolloProvider store={store} client={client}>
+        <App />
+      </ApolloProvider>
+    </AppContainer>
+  ), document.getElementById('content'));
+};
+
+renderApp();
+
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    // eslint-disable-next-line global-require
+    require('./App');
+
+    renderApp();
+  });
+}

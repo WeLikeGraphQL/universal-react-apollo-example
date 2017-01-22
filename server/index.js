@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === 'development') {
   const compiler = webpack(webpackDevConfig);
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
+    hot: true,
     publicPath: webpackDevConfig.output.publicPath
   }));
 
