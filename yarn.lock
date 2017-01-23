@@ -1058,7 +1058,7 @@ babel-register@^6.22.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@^6.0.0, babel-runtime@^6.11.6, babel-runtime@^6.2.0, babel-runtime@^6.9.0, babel-runtime@^6.9.1, babel-runtime@>=6.0.0:
+babel-runtime@^6.0.0, babel-runtime@^6.11.6, babel-runtime@^6.2.0, babel-runtime@^6.9.0, babel-runtime@^6.9.1:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.18.0.tgz#0f4177ffd98492ef13b9f823e9994a02584c9078"
   dependencies:
@@ -2271,12 +2271,12 @@ eslint-module-utils@^2.0.0:
     debug "2.2.0"
     pkg-dir "^1.0.0"
 
-eslint-plugin-graphql@~0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-graphql/-/eslint-plugin-graphql-0.4.3.tgz#17596c4a9b5692873ccc0410545ce230edcff047"
+eslint-plugin-graphql@~0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-graphql/-/eslint-plugin-graphql-0.6.0.tgz#4f2b680eac5eab874d40d7f1c888bdc51b192f0b"
   dependencies:
     babel-polyfill "^6.7.4"
-    graphql "^0.5.0"
+    graphql "^0.9.0"
     lodash "^4.11.1"
 
 eslint-plugin-import@~2.2.0:
@@ -2878,17 +2878,11 @@ graphql-tag@^1.1.1, graphql-tag@~1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-1.2.3.tgz#74c62443fbf3e693647426d7359f7e3e6ce7dace"
 
-graphql@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.5.0.tgz#1f03f8267128392df05d449889c48c4bd9ac34ce"
+graphql@^0.9.0, graphql@0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.9.1.tgz#f4d154cbec054d4a5d3b1be95f23435c09aa86c8"
   dependencies:
-    babel-runtime ">=6.0.0"
-
-graphql@0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.8.2.tgz#eb1bb524b38104bbf2c9157f9abc67db2feba7d2"
-  dependencies:
-    iterall "1.0.2"
+    iterall "1.0.3"
 
 growly@^1.2.0:
   version "1.3.0"
@@ -3487,9 +3481,9 @@ istanbul@^0.4.5:
     which "^1.1.1"
     wordwrap "^1.0.0"
 
-iterall@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.0.2.tgz#41a2e96ce9eda5e61c767ee5dc312373bb046e91"
+iterall@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.0.3.tgz#e0b31958f835013c323ff0b10943829ac69aa4b7"
 
 jest:
   version "17.0.2"
@@ -5457,9 +5451,9 @@ react-addons-test-utils@~15.4.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-apollo@~0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-0.8.1.tgz#3b49368f6f60f309e2e5e695ddbcd759fdc73f2e"
+react-apollo@~0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-0.9.0.tgz#a95d05ccf2f92b16a21fd41795e2876c9ea28d6e"
   dependencies:
     graphql-anywhere "^2.0.0"
     hoist-non-react-statics "^1.2.0"
@@ -5469,6 +5463,8 @@ react-apollo@~0.8.1:
     lodash.isobject "^3.0.2"
     lodash.pick "^4.4.0"
     object-assign "^4.0.1"
+  optionalDependencies:
+    react-dom "0.14.x || 15.* || ^15.0.0"
 
 react-bootstrap@~0.30.3:
   version "0.30.6"
@@ -5496,7 +5492,7 @@ react-deep-force-update@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.0.1.tgz#4f7f6c12c3e7de42f345992a3c518236fa1ecad3"
 
-react-dom@~15.4.2:
+react-dom@~15.4.2, "react-dom@0.14.x || 15.* || ^15.0.0":
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
   dependencies:

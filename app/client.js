@@ -3,7 +3,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import ApolloClient, { createNetworkInterface, addTypename } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { AppContainer } from 'react-hot-loader';
 import 'isomorphic-fetch';
 
@@ -32,17 +32,24 @@ const store = createStore(
     language,
     apollo: client.reducer(),
   }),
-  applyMiddleware(client.middleware())
+  compose(
+    applyMiddleware(client.middleware()),
+    // If you are using the devToolsExtension, you can add it here also
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  )
+);
+
+const AppContext = (
+  <ApolloProvider store={store} client={client}>
+    <App />
+  </ApolloProvider>
 );
 
 const renderApp = () => {
-  render((
-    <AppContainer>
-      <ApolloProvider store={store} client={client}>
-        <App />
-      </ApolloProvider>
-    </AppContainer>
-  ), document.getElementById('content'));
+  let App;
+  (process.env.NODE_ENV === 'production') ? App = AppContext : App = <AppContainer>{AppContext}</AppContainer>;
+
+  render(({App}), document.getElementById('content'));
 };
 
 renderApp();
