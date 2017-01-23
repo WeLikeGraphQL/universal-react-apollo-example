@@ -47,7 +47,6 @@ module.exports = {
       }
     ])
   },
-  postcss: config.commonPostCSS,
   resolve: config.commonResolve,
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
