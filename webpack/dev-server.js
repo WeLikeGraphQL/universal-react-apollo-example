@@ -20,20 +20,20 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: [
-          'css?importLoaders=1&localIdentName=[path]_[name]_[local]',
-          'postcss'
+          'css-loader?importLoaders=1&localIdentName=[path]_[name]_[local]',
+          'postcss-loader'
         ],
         include: config.context
       },
       {
         test: /flag-icon\.css$/,
         loaders: [
-          'css'
+          'css-loader'
         ]
       },
       {
         test: /wow\.js$/,
-        loader: 'null'
+        loader: 'null-loader'
       }
     ])
   },

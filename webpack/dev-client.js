@@ -28,30 +28,28 @@ module.exports = {
     publicPath: config.publicPath
   },
   module: {
-    loaders: config.commonLoaders.concat([
+    rules: config.commonLoaders.concat([
       {
         test: /\.css$/,
-        loaders: [
-          'style',
-          'css?importLoaders=1&localIdentName=[path]_[name]_[local]',
-          'postcss'
+        use: [
+          'style-loader',
+          'css-loader?importLoaders=1&localIdentName=[path]_[name]_[local]',
+          'postcss-loader'
         ],
         include: config.context
       },
       {
         test: /flag-icon\.css$/,
-        loaders: [
-          'style',
-          'css'
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" },
         ]
       }
     ])
   },
   resolve: config.commonResolve,
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
     new StyleLintPlugin({
       configFile: path.join(__dirname, '..', '.stylelintrc'),
       context: config.context,

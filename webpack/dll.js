@@ -19,7 +19,6 @@ module.exports = {
       name: '[name]',
       context: config.context
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.DefinePlugin({
       __DEVCLIENT__: true,

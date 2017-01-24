@@ -12,21 +12,17 @@ var publicPath = '/';
 var context = path.join(__dirname, '..', 'app');
 
 var commonLoaders = [
-  {
-    test: /isIterable/,
-    loader: 'imports?Symbol=>false'
-  },
-  {
-    test: /\.json?$/,
-    loader: 'json'
-  },
+  // {
+  //   test: /isIterable/,
+  //   use: 'imports?Symbol=>false'
+  // },
   {
     test: /\.(jpg|ttf|eot|woff2|woff|svg|png)?$/,
-    loader: 'url-loader'
+    use: 'url-loader'
   },
   {
     test: /\.js?$/,
-    loader: 'babel',
+    use: 'babel-loader',
     include: context
   }
 ];
@@ -34,20 +30,22 @@ var commonLoaders = [
 var commonProdLoaders = [
   {
     test: /\.css$/,
-    loader: ExtractTextPlugin.extract('css?importLoaders=1&localIdentName=[path]_[name]_[local]!postcss'),
+    loader: ExtractTextPlugin.extract('css-loader?importLoaders=1&localIdentName=[path]_[name]_[local]!postcss-loader'),
     include: context
   },
   {
     test: /flag-icon\.css$/,
-    loader: ExtractTextPlugin.extract('css')
+    loader: ExtractTextPlugin.extract('css-loader')
   }
 ];
 commonProdLoaders = commonProdLoaders.concat(commonLoaders);
 
 var commonResolve = {
-  root: [context],
-  moduleDirectories: ['../node_modules'],
-  extensions: ['', '.js']
+  modules: [
+    context,
+    'node_modules'
+  ],
+  extensions: ['.js', '.css']
 };
 
 var commonPostCSS = [
@@ -62,7 +60,6 @@ var commonPostCSS = [
 ];
 
 var commonProdPlugins = [
-  new webpack.optimize.OccurenceOrderPlugin(),
   new ExtractTextPlugin('styles/main.css', { allChunks: true }),
   new webpack.optimize.UglifyJsPlugin({
     minimize: true,
