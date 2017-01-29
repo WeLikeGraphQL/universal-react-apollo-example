@@ -2,9 +2,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var postcssImport = require('postcss-import');
-var postcssSassyMixins = require('postcss-sassy-mixins');
-var postcssCSSNext = require('postcss-cssnext');
 var CopyPlugin = require('copy-webpack-plugin');
 
 var assetsPath = path.join(__dirname, '..', 'dist');
@@ -22,20 +19,32 @@ var commonLoaders = [
   },
   {
     test: /\.js?$/,
-    use: 'babel-loader',
-    include: context
+    use: 'babel-loader'
   }
 ];
 
 var commonProdLoaders = [
   {
     test: /\.css$/,
-    loader: ExtractTextPlugin.extract('css-loader?importLoaders=1&localIdentName=[path]_[name]_[local]!postcss-loader'),
+    loader: ExtractTextPlugin.extract({
+      loader: [
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            localIdentName: "[path]_[name]_[local]"
+          }
+        },
+        'postcss-loader'
+      ]
+    }),
     include: context
   },
   {
     test: /flag-icon\.css$/,
-    loader: ExtractTextPlugin.extract('css-loader')
+    loader: ExtractTextPlugin.extract({
+      loader: 'css-loader'
+    })
   }
 ];
 commonProdLoaders = commonProdLoaders.concat(commonLoaders);
@@ -48,19 +57,33 @@ var commonResolve = {
   extensions: ['.js', '.css']
 };
 
-var commonPostCSS = [
-  postcssImport({
-    path: context,
-    addDependencyTo: webpack
-  }),
-  postcssSassyMixins(),
-  postcssCSSNext({
-    browsers: ['last 10 versions']
-  })
-];
+// var commonPostCSS = [
+//   postcssImport({
+//     path: context,
+//     addDependencyTo: webpack
+//   }),
+//   postcssSassyMixins(),
+//   postcssCSSNext({
+//     browsers: ['last 10 versions']
+//   })
+// ];
 
 var commonProdPlugins = [
-  new ExtractTextPlugin('styles/main.css', { allChunks: true }),
+  new ExtractTextPlugin({filename: 'styles/main.css', allChunks: true }),
+  // new webpack.LoaderOptionsPlugin({
+  //   options: {
+  //     postcss: [
+  //       postcssImport({
+  //         path: context,
+  //         addDependencyTo: webpack
+  //       }),
+  //       postcssSassyMixins(),
+  //       postcssCSSNext({
+  //         browsers: ['last 10 versions']
+  //       })
+  //     ]
+  //   }
+  // }),
   new webpack.optimize.UglifyJsPlugin({
     minimize: true,
     compressor: {
@@ -85,6 +108,5 @@ module.exports = {
   commonLoaders,
   commonProdLoaders,
   commonResolve,
-  commonPostCSS,
   commonProdPlugins
 };

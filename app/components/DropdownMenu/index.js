@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 
-import MenuItemLink from 'components/MenuItemLink/MenuItemLink';
+import { MenuItemLink } from 'components';
 import s from './dropdownMenu.css';
 
 

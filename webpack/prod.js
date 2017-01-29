@@ -20,9 +20,8 @@ module.exports = [
       publicPath: config.publicPath
     },
     module: {
-      loaders: config.commonProdLoaders
+      rules: config.commonProdLoaders
     },
-    postcss: config.commonPostCSS,
     resolve: config.commonResolve,
     plugins: config.commonProdPlugins
   },
@@ -41,14 +40,13 @@ module.exports = [
       libraryTarget: 'commonjs2'
     },
     module: {
-      loaders: config.commonProdLoaders.concat([
+      rules: config.commonProdLoaders.concat([
         {
           test: /wow\.js$/,
-          loader: 'null'
+          use: 'null-loader'
         }
       ])
     },
-    postcss: config.commonPostCSS,
     resolve: config.commonResolve,
     plugins: config.commonProdPlugins,
     externals: [

@@ -1,7 +1,6 @@
 import React from 'react';
 
-import NavMenu from 'components/NavMenu/NavMenu';
-import DropdownMenu from 'components/DropdownMenu/DropdownMenu';
+import { NavMenu, DropdownMenu } from 'components';
 
 const Menu = () => (
   <div>

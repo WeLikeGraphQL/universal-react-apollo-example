@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Lang from 'components/Lang/Lang';
-import Menu from 'components/Menu/Menu';
+import { Lang, Menu } from 'components';
 import s from './header.css';
 
 const Header = () => (

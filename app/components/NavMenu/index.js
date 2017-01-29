@@ -3,7 +3,7 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 
-import MenuItemLink from 'components/MenuItemLink/MenuItemLink';
+import { MenuItemLink } from 'components';
 import s from './navMenu.css';
 
 

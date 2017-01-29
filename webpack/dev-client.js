@@ -33,7 +33,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader?importLoaders=1&localIdentName=[path]_[name]_[local]',
+          'css-loader?localIdentName=[path]_[name]_[local]',
           'postcss-loader'
         ],
         include: config.context
@@ -41,8 +41,8 @@ module.exports = {
       {
         test: /flag-icon\.css$/,
         use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
+          'style-loader',
+          'css-loader'
         ]
       }
     ])

@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 
 import setLanguage from 'actions';
-import LangIcon from 'components/LangIcon/LangIcon';
+import { LangIcon } from 'components';
 import s from './lang.css';
 
 export const Lang = ({ language, changeLang, data: { loading, wp_query } }) => {

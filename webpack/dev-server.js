@@ -16,24 +16,24 @@ module.exports = {
     libraryTarget: 'commonjs2'
   },
   module: {
-    loaders: config.commonLoaders.concat([
+    rules: config.commonLoaders.concat([
       {
         test: /\.css$/,
-        loaders: [
-          'css-loader?importLoaders=1&localIdentName=[path]_[name]_[local]',
+        use: [
+          'css-loader?localIdentName=[path]_[name]_[local]',
           'postcss-loader'
         ],
         include: config.context
       },
       {
         test: /flag-icon\.css$/,
-        loaders: [
+        use: [
           'css-loader'
         ]
       },
       {
         test: /wow\.js$/,
-        loader: 'null-loader'
+        use: 'null-loader'
       }
     ])
   },
