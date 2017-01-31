@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import ApolloClient, { createNetworkInterface, addTypename } from 'apollo-client';
+import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { AppContainer } from 'react-hot-loader';
@@ -16,7 +16,6 @@ const networkInterface = createNetworkInterface({ uri: 'http://localhost:8000/gr
 
 const client = new ApolloClient({
   networkInterface,
-  queryTransformer: addTypename,
   dataIdFromObject: (result) => {
     if (result.id && result.__typename) { // eslint-disable-line no-underscore-dangle
       return result.__typename + result.id; // eslint-disable-line no-underscore-dangle

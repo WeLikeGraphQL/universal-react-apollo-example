@@ -20,7 +20,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'css-loader?localIdentName=[path]_[name]_[local]',
+          {
+            loader: 'css-loader',
+            options: {
+              localIdentName: "[path]_[name]_[local]"
+            }
+          },
           'postcss-loader'
         ],
         include: config.context

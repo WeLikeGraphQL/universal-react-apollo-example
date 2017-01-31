@@ -32,6 +32,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(require('webpack-hot-middleware')(compiler));
 }
 
+console.log(App.default);
 app.get('*', App.default);
 
 app.listen(APP_PORT, () => {

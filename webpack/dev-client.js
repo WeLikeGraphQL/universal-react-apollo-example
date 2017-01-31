@@ -7,7 +7,6 @@ var CopyPlugin = require('copy-webpack-plugin');
 var config = require('./common.config.js');
 
 module.exports = {
-  cache: true,
   // if you need debugging change to any source-map: https://webpack.github.io/docs/configuration.html#devtool
   devtool: 'eval',
   name: 'browser',
@@ -33,7 +32,12 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader?localIdentName=[path]_[name]_[local]',
+          {
+            loader: 'css-loader',
+            options: {
+              localIdentName: "[path]_[name]_[local]"
+            }
+          },
           'postcss-loader'
         ],
         include: config.context

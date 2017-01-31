@@ -9,10 +9,6 @@ var publicPath = '/';
 var context = path.join(__dirname, '..', 'app');
 
 var commonLoaders = [
-  // {
-  //   test: /isIterable/,
-  //   use: 'imports?Symbol=>false'
-  // },
   {
     test: /\.(jpg|ttf|eot|woff2|woff|svg|png)?$/,
     use: 'url-loader'
@@ -57,39 +53,14 @@ var commonResolve = {
   extensions: ['.js', '.css']
 };
 
-// var commonPostCSS = [
-//   postcssImport({
-//     path: context,
-//     addDependencyTo: webpack
-//   }),
-//   postcssSassyMixins(),
-//   postcssCSSNext({
-//     browsers: ['last 10 versions']
-//   })
-// ];
-
 var commonProdPlugins = [
   new ExtractTextPlugin({filename: 'styles/main.css', allChunks: true }),
-  // new webpack.LoaderOptionsPlugin({
-  //   options: {
-  //     postcss: [
-  //       postcssImport({
-  //         path: context,
-  //         addDependencyTo: webpack
-  //       }),
-  //       postcssSassyMixins(),
-  //       postcssCSSNext({
-  //         browsers: ['last 10 versions']
-  //       })
-  //     ]
+  // new webpack.optimize.UglifyJsPlugin({
+  //   minimize: true,
+  //   compressor: {
+  //     warnings: false
   //   }
   // }),
-  new webpack.optimize.UglifyJsPlugin({
-    minimize: true,
-    compressor: {
-      warnings: false
-    }
-  }),
   new webpack.DefinePlugin({
     __DEVCLIENT__: false,
     __DEVSERVER__: false,
