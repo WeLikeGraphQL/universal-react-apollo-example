@@ -1,8 +1,9 @@
-/* eslint no-console: 0 */
+/* eslint-disable no-console, import/no-duplicates */
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
-import { ApolloProvider, getDataFromTree } from 'react-apollo';
+import { ApolloProvider } from 'react-apollo';
+import { getDataFromTree } from 'react-apollo/lib';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import 'isomorphic-fetch';
 import dotenv from 'dotenv';

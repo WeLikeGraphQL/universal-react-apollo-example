@@ -34,22 +34,19 @@ const store = createStore(
   }),
   compose(
     applyMiddleware(client.middleware()),
-    // If you are using the devToolsExtension, you can add it here also
+    // eslint-disable-next-line no-underscore-dangle
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   )
 );
 
-const AppContext = (
-  <ApolloProvider store={store} client={client}>
-    <App />
-  </ApolloProvider>
-);
-
 const renderApp = () => {
-  let App;
-  (process.env.NODE_ENV === 'production') ? App = AppContext : App = <AppContainer>{AppContext}</AppContainer>;
-
-  render(({App}), document.getElementById('content'));
+  render((
+    <AppContainer>
+      <ApolloProvider store={store} client={client}>
+        <App />
+      </ApolloProvider>
+    </AppContainer>
+  ), document.getElementById('content'));
 };
 
 renderApp();
