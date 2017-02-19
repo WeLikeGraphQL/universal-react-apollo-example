@@ -6,7 +6,7 @@ describe('actions', () => {
     const lang = 'gb';
     const expectedAction = {
       type: 'SET_LANGUAGE',
-      lang
+      lang,
     };
     expect(setLanguage(lang)).to.deep.equal(expectedAction);
   });

@@ -23,7 +23,6 @@ const client = new ApolloClient({
     }
     return null;
   },
-  shouldBatch: true,
   initialState: window.__APOLLO_STATE__, // eslint-disable-line no-underscore-dangle
 });
 

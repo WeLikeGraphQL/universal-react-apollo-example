@@ -1,0 +1,7 @@
+exports[`MenuItemLink Component renders correctly 1`] = `
+<a
+  className={undefined}
+  onClick={[Function]}>
+  title
+</a>
+`;

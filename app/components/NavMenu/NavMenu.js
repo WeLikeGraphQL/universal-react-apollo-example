@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
 import MenuItemLink from 'components/MenuItemLink/MenuItemLink';
-import { withLoadingComponent, getOptions, mapStateToProps } from 'utility';
+import { withLoadingComponent, getOptions, mapStateToProps } from 'helpers';
 import s from './navMenu.css';
 
 

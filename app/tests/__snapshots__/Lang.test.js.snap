@@ -1,0 +1,61 @@
+exports[`Lang Component renders correctly 1`] = `
+<div
+  className="dropdown btn-group btn-group-default">
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    className="dropdown-toggle btn btn-default"
+    disabled={false}
+    id="Lang"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    type="button">
+    <span
+      className="flag-icon flag-icon-undefined" />
+     
+    <span
+      className="caret" />
+  </button>
+  <ul
+    aria-labelledby="Lang"
+    className="dropdown-menu"
+    role="menu">
+    <li
+      className=""
+      role="presentation"
+      style={undefined}>
+      <a
+        href="#"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        <span
+          className="flag-icon flag-icon-gb" />
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Lang Container renders without crashing 1`] = `
+<div>
+  Loading....
+</div>
+`;
+
+exports[`Lang Query should match expected shape 1`] = `
+"query getTerms {
+  wp_query {
+    terms(slug: \"languages\") {
+      term_id
+      children {
+        term_id
+        slug
+      }
+    }
+  }
+}
+"
+`;

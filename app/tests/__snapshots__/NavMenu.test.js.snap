@@ -1,0 +1,30 @@
+exports[`NavMenu Component renders correctly 1`] = `
+<ul
+  className={undefined}>
+  <li>
+    <a
+      className={undefined}
+      onClick={[Function]}>
+      ok
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`NavMenu Container renders without crashing 1`] = `
+<div>
+  Loading....
+</div>
+`;
+
+exports[`NavMenu Query should match expected shape 1`] = `
+"query getMenu($lang: String!) {
+  wp_query {
+    menu(name: $lang) {
+      id
+      title
+    }
+  }
+}
+"
+`;

@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 import { animateScroll } from 'react-scroll';
 import { compose, withHandlers } from 'recompose';
 
-import { withLoadingComponent, getOptions, mapStateToProps } from 'utility';
+import { withLoadingComponent, getOptions, mapStateToProps } from 'helpers';
 
 import './banner.css';
 import './contact.css';
@@ -23,11 +23,6 @@ export const Page = ({ posts, scrollToTop }) => (
     <a className="toTop" onClick={scrollToTop} />
   </div>
 );
-
-Page.propTypes = {
-  posts: PropTypes.array.isRequired,
-  scrollToTop: PropTypes.func.isRequired
-};
 
 const handlers = {
   scrollToTop: () => () => { animateScroll.scrollToTop(); }

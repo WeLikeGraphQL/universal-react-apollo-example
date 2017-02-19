@@ -21,12 +21,10 @@ const apiUrl = `${HOST}:${GRAPHQL_PORT}/${GRAPHQL_ENDPOINT}`;
 export default function render(req, res) {
   const client = new ApolloClient({
     ssrMode: true,
-    ssrForceFetchDelay: 2000,
     networkInterface: createNetworkInterface({ uri: apiUrl }, {
       credentials: 'same-origin',
       headers: req.headers
-    }),
-    shouldBatch: true
+    })
   });
 
   const store = createStore(

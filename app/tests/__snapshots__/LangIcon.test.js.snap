@@ -1,0 +1,4 @@
+exports[`LangIcon Component renders correctly 1`] = `
+<span
+  className="flag-icon flag-icon-undefined" />
+`;

@@ -6,7 +6,7 @@ import { DropdownButton, MenuItem } from 'react-bootstrap';
 import { compose } from 'recompose';
 
 import MenuItemLink from 'components/MenuItemLink/MenuItemLink';
-import { withLoadingComponent, getOptions, mapStateToProps } from 'utility';
+import { withLoadingComponent, getOptions, mapStateToProps } from 'helpers';
 import s from './dropdownMenu.css';
 
 
@@ -33,7 +33,7 @@ export const MENU_QUERY = gql`
 
 export default compose(
   withLoadingComponent,
+  connect(mapStateToProps),
   graphql(MENU_QUERY, getOptions(['menu'])),
-  connect(mapStateToProps)
 )(DropdownMenu);
 

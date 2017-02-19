@@ -1,0 +1,73 @@
+exports[`DropdownMenu Component renders correctly 1`] = `
+<div
+  className="dropdown btn-group btn-group-default">
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    className="dropdown-toggle btn btn-default"
+    disabled={false}
+    id="dropdown"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    type="button">
+    <span />
+  </button>
+  <ul
+    aria-labelledby="dropdown"
+    className="dropdown-menu"
+    role="menu">
+    <li
+      className=""
+      role="presentation"
+      style={undefined}>
+      <a
+        href="#"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1">
+        <a
+          className={undefined}
+          onClick={[Function]}>
+          ok
+        </a>
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`DropdownMenu Container renders without crashing 1`] = `
+<div
+  className="dropdown btn-group btn-group-default">
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    className="dropdown-toggle btn btn-default"
+    disabled={false}
+    id="dropdown"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    type="button">
+    <span />
+  </button>
+  <ul
+    aria-labelledby="dropdown"
+    className="dropdown-menu"
+    role="menu" />
+</div>
+`;
+
+exports[`DropdownMenu Query should match expected shape 1`] = `
+"query getMenu($lang: String!) {
+  wp_query {
+    menu(name: $lang) {
+      id
+      title
+    }
+  }
+}
+"
+`;

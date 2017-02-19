@@ -1,0 +1,25 @@
+exports[`Page Component renders correctly 1`] = `
+<div>
+  <a
+    className="toTop"
+    onClick={undefined} />
+</div>
+`;
+
+exports[`Page Container renders without crashing 1`] = `
+<div>
+  Loading....
+</div>
+`;
+
+exports[`Page Query should match expected shape 1`] = `
+"query getPosts($lang: String!) {
+  wp_query {
+    posts(category_name: $lang) {
+      title
+      content
+    }
+  }
+}
+"
+`;

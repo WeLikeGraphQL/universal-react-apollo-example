@@ -9,17 +9,17 @@ import setLanguage from 'actions';
 import LangIcon from 'components/LangIcon/LangIcon';
 import { PAGE_QUERY } from 'components/Page/Page';
 import { MENU_QUERY } from 'components/NavMenu/NavMenu';
-import { mapStateToProps, withLoadingComponent, getOptions } from 'utility';
+import { mapStateToProps, withLoadingComponent, getOptions } from 'helpers';
 import s from './lang.css';
 
 /* eslint-disable no-unused-expressions, array-callback-return */
 const prefetchData = (languages, client) => {
   languages && languages.map((language) => {
-    client.query({
+    client && client.query({
       variables: { lang: language.slug },
       query: PAGE_QUERY
     });
-    client.query({
+    client && client.query({
       variables: { lang: language.slug },
       query: MENU_QUERY
     });

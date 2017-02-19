@@ -1,16 +1,14 @@
 import React from 'react';
-import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
+import { MockedProvider } from 'react-apollo/lib/test-utils';
 
 import Menu from 'components/Menu/Menu';
-import NavMenu from 'components/NavMenu/NavMenu';
-import DropdownMenu from 'components/DropdownMenu/DropdownMenu';
 
-describe('Test suite for Menu Component', () => {
-  it('should render the component after loading', () => {
-    const wrapper = shallow(<Menu />);
-
-    expect(wrapper.find(NavMenu).length).to.equal(1);
-    expect(wrapper.find(DropdownMenu).length).to.equal(1);
+describe('Menu Component', () => {
+  it('renders correctly', () => {
+    const component = renderer.create(
+      <MockedProvider><Menu /></MockedProvider>
+    );
+    expect(component.toJSON()).toMatchSnapshot();
   });
 });
