@@ -2,7 +2,6 @@
 
 [![Gitter][gitter-img]][gitter-link]
 [![Build Status](https://travis-ci.org/WeLikeGraphQL/universal-react-apollo-example.svg?branch=master)](https://travis-ci.org/WeLikeGraphQL/universal-react-apollo-example)
-[![Coverage Status](https://coveralls.io/repos/github/WeLikeGraphQL/universal-react-apollo-example/badge.svg?branch=master)](https://coveralls.io/github/WeLikeGraphQL/universal-react-apollo-example?branch=master)
 
 > An example of the app that shows how to use a modern stack (strong accent on GraphQL!).
 
@@ -12,18 +11,19 @@
 ## Features
 
  - [GraphQL](http://graphql.org/) for fetching data! The most awesome part of the project!
- - Universal Rendering
+ - Universal Rendering (Server Side Rendering)
  - ES6/ES2015 with [Babel](https://babeljs.io/)
  - React data container for the [Apollo Client](http://dev.apollodata.com/react/) 
  - Integrating predictable state container [Redux](http://redux.js.org) with Apollo
- - Hot reloading using [react-transform-hmr](https://github.com/gaearon/react-transform-hmr)
+ - Hot reloading using [React-Hot-Loader](https://github.com/gaearon/react-hot-loader)
+ - [Recompose](https://github.com/acdlite/recompose) as a React utility belt for higher order components
  - Development and production bundling by [Webpack](https://webpack.github.io)
  - [CSSNext](http://cssnext.io/): use of official W3C syntax of the future CSS
  - Transforming styles with JS plugins by [PostCSS](http://postcss.org/)
  - [Wow.js](http://mynameismatthieu.com/WOW/) for CSS animations
  - [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) for resolving [layout fatigue](http://blog.karenmenezes.com/2014/apr/13/floats-inline-block-or-display-table-or-flexbox/) and making the app responsive (open the app in desktop, mobile, whatever...). Doesn't work on IE 9, but it should not be a problem nowadays. See [browsers usage](http://caniuse.com/usage-table).
  - [CSS Modules](https://github.com/css-modules/css-modules): say goodbye to global scope in CSS and most of conflicts
- - [Jest](https://facebook.github.io/jest/), [Enzyme](http://airbnb.io/enzyme/), [Chai](http://chaijs.com/), [Sinon](http://sinonjs.org/) for testing (no [snapshot](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) tests yet)
+ - [Jest Snapshot Testng](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html), some parts in [Enzyme](http://airbnb.io/enzyme/) and [Sinon](http://sinonjs.org/)
  - Linting both JS and CSS, respectively by: [ESLint](http://eslint.org/) and [Stylelint](http://stylelint.io/)
  
 ## Running the app
