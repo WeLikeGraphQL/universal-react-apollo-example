@@ -52,6 +52,7 @@
     "react-dom": "~15.4.2",
     "react-redux": "~5.0.2",
     "react-scroll": "~1.4.0",
+    "recompose": "^0.22.0",
     "redux": "~3.6.0",
     "wow.js": "~1.2.2"
   },

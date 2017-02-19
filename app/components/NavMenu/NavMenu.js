@@ -2,26 +2,22 @@ import React from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
+import { compose } from 'recompose';
 
 import MenuItemLink from 'components/MenuItemLink/MenuItemLink';
+import { withLoadingComponent, getOptions, mapStateToProps } from 'utility';
 import s from './navMenu.css';
 
 
-export const NavMenu = ({ data: { loading, wp_query } }) => {
-  if (loading) return (null);
-
-  const { menu } = wp_query;
-
-  return (
-    <ul className={s.menu}>
-      {menu && menu.map(menuItem => (
-        <li key={menuItem.id}>
-          <MenuItemLink title={menuItem.title} />
-        </li>
-      ))}
-    </ul>
-  );
-};
+export const NavMenu = ({ menu }) => (
+  <ul className={s.menu}>
+    {menu && menu.map(menuItem => (
+      <li key={menuItem.id}>
+        <MenuItemLink title={menuItem.title} />
+      </li>
+    ))}
+  </ul>
+);
 
 export const MENU_QUERY = gql`
   query getMenu ($lang: String!) {
@@ -34,16 +30,9 @@ export const MENU_QUERY = gql`
   }
 `;
 
-const NavMenuWithData = graphql(MENU_QUERY, {
-  options: ({ language }) => ({
-    variables: { lang: language || 'gb' },
-  }),
-}
+export default compose(
+  connect(mapStateToProps),
+  graphql(MENU_QUERY, getOptions(['menu'])),
+  withLoadingComponent
 )(NavMenu);
-
-const NavMenuWithDataAndState = connect(
-  state => ({ language: state.language })
-)(NavMenuWithData);
-
-export default NavMenuWithDataAndState;
 

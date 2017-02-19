@@ -3,70 +3,47 @@ import { DropdownButton, MenuItem } from 'react-bootstrap';
 import { graphql, withApollo } from 'react-apollo';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
+import { compose } from 'recompose';
 
 import setLanguage from 'actions';
 import LangIcon from 'components/LangIcon/LangIcon';
 import { PAGE_QUERY } from 'components/Page/Page';
 import { MENU_QUERY } from 'components/NavMenu/NavMenu';
+import { mapStateToProps, withLoadingComponent, getOptions } from 'utility';
 import s from './lang.css';
 
-export class Lang extends React.Component {
-
-  /* eslint-disable no-unused-expressions, array-callback-return */
-  prefetchData(languages) {
-    languages && languages.map((language) => {
-      this.props.client.query({
-        variables: { lang: language.slug },
-        query: PAGE_QUERY
-      });
-      this.props.client.query({
-        variables: { lang: language.slug },
-        query: MENU_QUERY
-      });
+/* eslint-disable no-unused-expressions, array-callback-return */
+const prefetchData = (languages, client) => {
+  languages && languages.map((language) => {
+    client.query({
+      variables: { lang: language.slug },
+      query: PAGE_QUERY
     });
-  }
-  /* eslint-enable no-unused-expressions, array-callback-return */
+    client.query({
+      variables: { lang: language.slug },
+      query: MENU_QUERY
+    });
+  });
+};
+/* eslint-enable no-unused-expressions, array-callback-return */
 
-  render() {
-    const {
-      language,
-      changeLang,
-      data: { loading, wp_query }
-    } = this.props;
+export const Lang = ({ language, changeLang, client, terms }) => {
+  const languages = terms[0].children;
+  prefetchData(languages, client);
 
-    if (loading) return (null);
-    const { terms } = wp_query;
-    const languages = terms[0].children;
-    this.prefetchData(languages);
-
-    return (
-      <DropdownButton
-        bsStyle="default" title={[<LangIcon language={language} />]} id="Lang"
-        className={s.dropdown}
-      >
-        {languages && languages.map(lang => (
-          <MenuItem key={lang.term_id} onClick={() => changeLang(lang.slug)} className={s['dropdown-menu']}>
-            <LangIcon language={lang.slug} />
-          </MenuItem>
-        ))}
-      </DropdownButton>
-    );
-  }
-}
-
-const mapStateToProps = state => ({
-  language: state.language,
-});
-const mapDispatchToProps = dispatch => ({
-  changeLang: (lang) => {
-    dispatch(setLanguage(lang));
-  },
-});
-
-const LangWithState = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Lang);
+  return (
+    <DropdownButton
+      bsStyle="default" title={[<LangIcon language={language} />]} id="Lang"
+      className={s.dropdown}
+    >
+      {languages && languages.map(lang => (
+        <MenuItem key={lang.term_id} onClick={() => changeLang(lang.slug)} className={s['dropdown-menu']}>
+          <LangIcon language={lang.slug} />
+        </MenuItem>
+      ))}
+    </DropdownButton>
+  );
+};
 
 export const LANG_QUERY = gql`
   query getTerms {
@@ -82,6 +59,16 @@ export const LANG_QUERY = gql`
   }
 `;
 
-const PageWithDataAndState = graphql(LANG_QUERY)(LangWithState);
+const mapDispatchToProps = dispatch => ({
+  changeLang: (lang) => {
+    dispatch(setLanguage(lang));
+  },
+});
 
-export default withApollo(PageWithDataAndState);
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  graphql(LANG_QUERY, getOptions(['terms'])),
+  withApollo,
+  withLoadingComponent
+)(Lang);
+
